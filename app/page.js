@@ -35,11 +35,11 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {products.map((p) => (
             <div key={p.id} className="bg-white rounded-2xl p-6 shadow-sm border border-[#e8d5c0] flex flex-col gap-3">
-              <div className="w-full h-40 bg-[#f0e0cc] rounded-xl flex items-center justify-center text-[#c9a882] text-sm">foto produk</div>
-              <h4 className="text-[#5c3d2e] text-lg">{p.name[lang]}</h4>
+              <a href={"/produk/" + p.id + "?lang=" + lang} className="w-full h-40 bg-[#f0e0cc] rounded-xl flex items-center justify-center text-[#c9a882] text-sm hover:opacity-80 transition">foto produk</a>
+              <a href={"/produk/" + p.id + "?lang=" + lang} className="text-[#5c3d2e] text-lg hover:underline">{p.name[lang]}</a>
               <p className="text-[#8c6b4f] text-sm">{p.desc[lang]}</p>
               <p className="text-[#5c3d2e] font-semibold">Rp {p.price.toLocaleString("id-ID")}</p>
-              <a href={waBase + p.name.id} target="_blank" rel="noopener noreferrer" className="mt-auto bg-[#5c3d2e] text-[#fdf6ec] text-center py-2 rounded-full text-sm hover:bg-[#7a5240] transition">{t.order}</a>
+              <a href={"/bayar?id=" + p.id + "&lang=" + lang} className="mt-auto bg-[#5c3d2e] text-[#fdf6ec] text-center py-2 rounded-full text-sm hover:bg-[#7a5240] transition">{lang === "id" ? "Beli Sekarang" : "Buy Now"}</a>
             </div>
           ))}
         </div>
